@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<h2>SignUp</h2>
+<form method="post" action="~/Authentication/SignUp">
+    <label>
+        User Name:
+        <input type="text" name="UserId" value="@Model.UserId" />
+    </label>
+    <br />
+    <label>
+        Password:
+        <input type="password" name="Password" value="@Model.Password" />
+    </label>
+    <br />
+    <label>
+        Email:
+        <input type="text" name="Email" value="@Model.Email" />
+    </label>
+    <br />
+    <label>
+        Name:
+        <input type="text" name="Name" value="@Model.Name" />
+    </label>
+    <br />
+    <label>
+        Age:
+        <input type="text" name="Age" value="@Model.Age" />
+    </label>
+    <br />
+    <label><input type="radio" name="IsProvider" value="@Model.IsProvider" checked="checked" />Provider</label>
+    <label><input type="radio" name="IsProvider" value="Customer" />Customer</label>
+    <input type="submit" name="send" value="Register" />
+</form>
+<p style="color:red">@TempData["signupMessage"]</p>
+
+

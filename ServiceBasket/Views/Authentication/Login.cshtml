@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<form method="post" action="~/Authentication/Login">
+<label>
+    User Name:
+    <input type="text" name="UserId" value="@Model.UserId" />
+</label>
+<br />
+<label>
+    Password:
+    <input type="password" name="Password" value="@Model.Password" />
+</label>
+<br />
+<input type="submit" name="send" value="Login" />
+</form>
+<p style="color:red">@TempData["loginMessage"]</p>
