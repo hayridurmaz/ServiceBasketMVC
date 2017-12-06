@@ -126,7 +126,7 @@ namespace ServiceBasket.Models.Repository
                 DoCommand(sql);
 
                 sql = "CREATE TABLE SERVICE (ServiceId decimal, " +
-                    "Title VARCHAR(50),Description VARCHAR(500), OwnerUserId VARCHAR(50), PRIMARY KEY(ServiceId))";
+                    "Title VARCHAR(50),Description VARCHAR(500), OwnerUserId VARCHAR(50), PRIMARY KEY(ServiceId))";//kategori ekle!!
                 DoCommand(sql);
 
                 sql = "CREATE TABLE COMMENT (CommentId decimal, " +
