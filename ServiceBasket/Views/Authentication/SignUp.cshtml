@@ -18,6 +18,18 @@
                 return form.reset();
             }
         }
+        var passcheck = function (){
+            var Password = get('Password').value
+            var Password1 = get('Password1').value
+            if (Password == Password1) {
+                get('passerr').style.color = 'green';
+                get('passerr').innerHTML = 'PASSWORDS MATCHING';
+            }
+            else {
+                get('passerr').style.color = 'red';
+                get('passerr').innerHTML = 'PASSWORDS NOT MATCHING';
+            }
+        }
 
         function validateForm() {
             // validate userid
@@ -62,49 +74,61 @@
 </head>
 <h2>SignUp</h2>
 <form method="post" action="~/Authentication/SignUp" onsubmit="return validateForm()">
+
+    <p>
     <label>
         User Name:
-        <input type="text" name="UserId" value="@Model.UserId" required/>
+        <input type="text" name="UserId" id="UserId" value="@Model.UserId" required/>
     </label>
     <span id="useriderr" class="errmsg"> </span>
+    </p>
     <br />
-    <label>
-        Password:
-        <input type="password" name="Password" value="@Model.Password" required/>
-    </label>
-    <span id="passerr" class="errmsg"> </span>
+    <p>
+        <label>
+            Password:
+            <input type="password" name="Password" id="Password" value="@Model.Password" required onkeyup="passcheck();" />
+        </label>
+    </p>
     <br />
-    <label>
-        Confirm Password:
-        <input type="password" name="Password1" required/>
-    </label>
-    <span id="passerr" class="errmsg"> </span>
+    <p>
+        <label>
+            Confirm Password:
+            <input type="password" name="Password1" id="Password1" required onkeyup="passcheck();" />
+        </label>
+        <span id="passerr" class="errmsg"> </span>
+    </p>
     <br />
-    <label>
-        Email:
-        <input type="text" name="Email" value="@Model.Email" required/>
-    </label>
-    <span id="emailerr" class="errmsg"> </span>
+    <p>
+        <label>
+            Email:
+            <input type="text" name="Email" id="Email" value="@Model.Email" required />
+        </label>
+        <span id="emailerr" class="errmsg"> </span>
+    </p>
     <br />
-    <label>
-        Name:
-        <input type="text" name="Name" value="@Model.Name" required/>
-    </label>
-    <span id="nameerr" class="errmsg"> </span>
+    <p>
+        <label>
+            Name:
+            <input type="text" name="Name" id="Name" value="@Model.Name" required />
+        </label>
+        <span id="nameerr" class="errmsg"> </span>
+    </p>
     <br />
-    <label>
-        Age:
-        <input type="text" name="Age" value="@Model.Age" required/>
-    </label>
-    <span id="ageerr" class="errmsg"> </span>
-    <br />
+    <p>
+        <label>
+            Age:
+            <input type="text" name="Age" id="Age" value="@Model.Age" required />
+        </label>
+        <span id="ageerr" class="errmsg"> </span>
+    </p>
+        <br />
 
-    <label>@Html.RadioButton("IsProvider", true)  Provider</label>
-    <label>@Html.RadioButton("IsProvider", false) Customer</label>
-    
-    <input type="submit" name="send" value="Register" />
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="reset" value="Clear Form" id="clear" onclick="confirm('Are you sure?')" />
+        <label>@Html.RadioButton("IsProvider", true)  Provider</label>
+        <label>@Html.RadioButton("IsProvider", false) Customer</label>
+
+        <input type="submit" name="send" value="Register" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="reset" value="Clear Form" id="clear" onclick="confirm('Are you sure?')" />
 </form>
 <p style="color:red">@TempData["signupMessage"]</p>
 
