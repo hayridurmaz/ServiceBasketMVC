@@ -2,7 +2,6 @@
 ServiceBasket/obj/Debug/ServiceBasket.dll
 ServiceBasket/obj/Debug/ServiceBasket.dll
 *.dll
-ServiceBasket/Database.sqlite
-*.dll
-ServiceBasket/bin/ServiceBasket.dll
 ServiceBasket/bin/ServiceBasket.pdb
+ServiceBasket/Database.sqlite
+ServiceBasket/bin
