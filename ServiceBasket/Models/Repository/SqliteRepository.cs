@@ -122,7 +122,7 @@ namespace ServiceBasket.Models.Repository
                 string sql = "CREATE TABLE USER (UserId VARCHAR(15), " +
                     "Name VARCHAR(50),Email VARCHAR(50), Salt VARCHAR(50), " +
                     "PasswordHash varchar(50),IsAdmin INT, IsActive INT, " +
-                    "RegisterDate DATE, IsProvider INT, PRIMARY KEY(UserId))";
+                    "RegisterDate DATE, IsProvider INT, Age INT, PRIMARY KEY(UserId))";
                 DoCommand(sql);
 
                 sql = "CREATE TABLE SERVICE (ServiceId decimal, " +

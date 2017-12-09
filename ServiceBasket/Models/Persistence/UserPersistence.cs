@@ -64,7 +64,8 @@ namespace ServiceBasket.Models.Persistence
                     IsAdmin = admin,
                     IsActive = active,
                     RegisterDate = regDate,
-                    IsProvider = provider
+                    IsProvider = provider,
+                    Age=(int)dataRow[9]
                 };
                 users.Add(user);
             }
@@ -91,7 +92,7 @@ namespace ServiceBasket.Models.Persistence
             }
             
 
-            string sql = "insert into USER (UserId, Name, Email, Salt, PasswordHash, IsAdmin, IsActive, RegisterDate, IsProvider) values ('"
+            string sql = "insert into USER (UserId, Name, Email, Salt, PasswordHash, IsAdmin, IsActive, RegisterDate, IsProvider, Age) values ('"
                 + user.UserId + "', '"
                 + user.Name + "', '"
                 + user.Email +"', '"
@@ -100,7 +101,8 @@ namespace ServiceBasket.Models.Persistence
                 + isadmin + ", "
                 + isactive + ", '"
                 + user.RegisterDate.ToString("yyyy-MM-dd") + "', "
-                + isprovider+")";
+                + isprovider +", '"
+                + user.Age+"')";
             
 
             RepositoryManager.Repository.DoCommand(sql);
