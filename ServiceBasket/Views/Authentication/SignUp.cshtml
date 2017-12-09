@@ -32,9 +32,9 @@
             //Name
             var Name = get('Name').value
             get('nameerr').innerHTML = ''
-            if (! /^[\-a-zA-Z0-9]*$/.test(Name)) {
+            if (! /^[a-zA-Z]*$/.test(Name)) {
                 valid = false
-                get('nameerr').innerHTML = 'Name can contain only a-z, A-Z, 0-9, and hyphen'
+                get('nameerr').innerHTML = 'Name can contain only a-z, A-Z'
             }
             //Email
             var Email = get('Email').value
@@ -76,7 +76,7 @@
     <br />
     <label>
         Confirm Password:
-        <input type="password" name="Password1" value="@Model.Password" required/>
+        <input type="password" name="Password1" required/>
     </label>
     <span id="passerr" class="errmsg"> </span>
     <br />
