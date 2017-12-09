@@ -12,37 +12,46 @@
     </style>
 
     <script type="text/JavaScript">
+        function clear() {
+            var answer = confirm("Are you sure?")
+            if (answer) {
+                return form.reset();
+            }
+        }
 
         function validateForm() {
             // validate userid
             var valid = true
-            //userid
-            var userid = get('userid').value
+            //UserId
+            var UserId = get('UserId').value
             get('useriderr').innerHTML = ''
-            if (! /^[\-a-zA-Z0-9]*$/.test(userid)) {
+            if (! /^[\-a-zA-Z0-9]*$/.test(UserId)) {
                 valid = false
                 get('useriderr').innerHTML = 'Userid can contain only a-z, A-Z, 0-9, and hyphen'
             }
-            //e-mail1
-            var email1 = get('email1').value
+            //Name
+            var Name = get('Name').value
+            get('nameerr').innerHTML = ''
+            if (! /^[\-a-zA-Z0-9]*$/.test(Name)) {
+                valid = false
+                get('nameerr').innerHTML = 'Name can contain only a-z, A-Z, 0-9, and hyphen'
+            }
+            //Email
+            var Email = get('Email').value
             get('emailerr').innerHTML = ''
-            if (! /^[\.@@0-9a-zA-Z]*$/.test(email1)) {
+            if (! /^[\.@@0-9a-zA-Z]*$/.test(Email)) {
                 valid = false
                 get('emailerr').innerHTML = 'Userid can contain only a-z, A-Z, 0-9,@@ and period'
             }
-            //match
-            if (email1 != email2) {
+            //match pass
+            var Password = get('Password').value
+            var Password1 = get('Password1').value
+            get('passerr').innerHTML = ''
+            if (Password != Password1) {
                 valid = false
-                get('emailerr').innerHTML = 'Userid can contain only a-z, A-Z, 0-9,space and hyphen. AND EMAILS SHOULD MATCH!!'
+                get('passerr').innerHTML = 'PASSWORDS SHOULD MATCH!!'
             }
-            //checked
-            var agreed = document.getElementById('agree').checked
-            if (!agreed) {
-                valid = false
-            }
-            if (valid) {
-                get("subscribe").disabled = "true"
-            }
+            
             return valid
         }
 
@@ -52,40 +61,50 @@
 
 </head>
 <h2>SignUp</h2>
-<form method="post" action="~/Authentication/SignUp">
+<form method="post" action="~/Authentication/SignUp" onsubmit="return validateForm()">
     <label>
         User Name:
-        <input type="text" name="UserId" value="@Model.UserId" />
+        <input type="text" name="UserId" value="@Model.UserId" required/>
     </label>
     <span id="useriderr" class="errmsg"> </span>
     <br />
     <label>
         Password:
-        <input type="password" name="Password" value="@Model.Password" />
+        <input type="password" name="Password" value="@Model.Password" required/>
+    </label>
+    <span id="passerr" class="errmsg"> </span>
+    <br />
+    <label>
+        Confirm Password:
+        <input type="password" name="Password1" value="@Model.Password" required/>
     </label>
     <span id="passerr" class="errmsg"> </span>
     <br />
     <label>
         Email:
-        <input type="text" name="Email" value="@Model.Email" />
+        <input type="text" name="Email" value="@Model.Email" required/>
     </label>
     <span id="emailerr" class="errmsg"> </span>
     <br />
     <label>
         Name:
-        <input type="text" name="Name" value="@Model.Name" />
+        <input type="text" name="Name" value="@Model.Name" required/>
     </label>
     <span id="nameerr" class="errmsg"> </span>
     <br />
     <label>
         Age:
-        <input type="text" name="Age" value="@Model.Age" />
+        <input type="text" name="Age" value="@Model.Age" required/>
     </label>
     <span id="ageerr" class="errmsg"> </span>
     <br />
+
     <label><input type="radio" name="IsProvider" value="@Model.IsProvider" checked="checked" />Provider</label>
     <label><input type="radio" name="IsProvider" value="Customer" />Customer</label>
+    
     <input type="submit" name="send" value="Register" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="reset" value="Clear Form" id="clear" onclick="confirm('Are you sure?')" />
 </form>
 <p style="color:red">@TempData["signupMessage"]</p>
 
