@@ -10,7 +10,7 @@ namespace ServiceBasket.Models.Repository
     public class SqliteRepository : IRepository
     {
         // Location of the database file 
-        private string databaseFile = "C:\\Users\\Hayri Durmaz\\source\\repos\\ServiceBasket\\ServiceBasket\\Database.sqlite";//son halinde değişmesi gerekebilir
+        private string databaseFile = "C:\\DATABASE\\Database.sqlite";//son halinde değişmesi gerekebilir
 
         private SQLiteConnection dbConnection;
 
