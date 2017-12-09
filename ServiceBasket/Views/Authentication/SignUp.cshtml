@@ -99,8 +99,8 @@
     <span id="ageerr" class="errmsg"> </span>
     <br />
 
-    <label><input type="radio" name="IsProvider" value="@Model.IsProvider" checked="checked" />Provider</label>
-    <label><input type="radio" name="IsProvider" value="Customer" />Customer</label>
+    <label>@Html.RadioButton("IsProvider", true)  Provider</label>
+    <label>@Html.RadioButton("IsProvider", false) Customer</label>
     
     <input type="submit" name="send" value="Register" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
