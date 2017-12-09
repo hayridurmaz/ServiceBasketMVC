@@ -2,33 +2,86 @@
 @{
     ViewBag.Title = "SignUp";
 }
+<head>
+    <meta charset="utf-8" />
+    <title>CS347 JavaScript Lab</title>
+    <style type="text/css">
+        .errmsg {
+            color: red;
+        }
+    </style>
 
+    <script type="text/JavaScript">
+
+        function validateForm() {
+            // validate userid
+            var valid = true
+            //userid
+            var userid = get('userid').value
+            get('useriderr').innerHTML = ''
+            if (! /^[\-a-zA-Z0-9]*$/.test(userid)) {
+                valid = false
+                get('useriderr').innerHTML = 'Userid can contain only a-z, A-Z, 0-9, and hyphen'
+            }
+            //e-mail1
+            var email1 = get('email1').value
+            get('emailerr').innerHTML = ''
+            if (! /^[\.@@0-9a-zA-Z]*$/.test(email1)) {
+                valid = false
+                get('emailerr').innerHTML = 'Userid can contain only a-z, A-Z, 0-9,@@ and period'
+            }
+            //match
+            if (email1 != email2) {
+                valid = false
+                get('emailerr').innerHTML = 'Userid can contain only a-z, A-Z, 0-9,space and hyphen. AND EMAILS SHOULD MATCH!!'
+            }
+            //checked
+            var agreed = document.getElementById('agree').checked
+            if (!agreed) {
+                valid = false
+            }
+            if (valid) {
+                get("subscribe").disabled = "true"
+            }
+            return valid
+        }
+
+
+        function get(id) { return document.getElementById(id) }
+    </script>
+
+</head>
 <h2>SignUp</h2>
 <form method="post" action="~/Authentication/SignUp">
     <label>
         User Name:
         <input type="text" name="UserId" value="@Model.UserId" />
     </label>
+    <span id="useriderr" class="errmsg"> </span>
     <br />
     <label>
         Password:
         <input type="password" name="Password" value="@Model.Password" />
     </label>
+    <span id="passerr" class="errmsg"> </span>
     <br />
     <label>
         Email:
         <input type="text" name="Email" value="@Model.Email" />
     </label>
+    <span id="emailerr" class="errmsg"> </span>
     <br />
     <label>
         Name:
         <input type="text" name="Name" value="@Model.Name" />
     </label>
+    <span id="nameerr" class="errmsg"> </span>
     <br />
     <label>
         Age:
         <input type="text" name="Age" value="@Model.Age" />
     </label>
+    <span id="ageerr" class="errmsg"> </span>
     <br />
     <label><input type="radio" name="IsProvider" value="@Model.IsProvider" checked="checked" />Provider</label>
     <label><input type="radio" name="IsProvider" value="Customer" />Customer</label>
