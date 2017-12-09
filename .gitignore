@@ -1,3 +1,4 @@
 .vs
 ServiceBasket/obj/Debug/ServiceBasket.dll
 ServiceBasket/obj/Debug/ServiceBasket.dll
+*.dll
