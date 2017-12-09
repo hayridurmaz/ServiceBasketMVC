@@ -11,7 +11,7 @@ namespace ServiceBasket.Models.Transaction
     {
         public static bool AuthenticateUser(Credential credential, HttpSessionStateBase httpSessionStateBase)
         {
-            httpSessionStateBase["LoggedIn"] = false;//comment1
+            httpSessionStateBase["LoggedIn"] = false;//comment2
             httpSessionStateBase["IsAdmin"] = false;
             httpSessionStateBase["IsProvider"] = false;
             User user = UserPersistence.GetUser(credential.UserId);
