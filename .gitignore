@@ -3,4 +3,4 @@ ServiceBasket/obj/Debug/ServiceBasket.dll
 ServiceBasket/obj/Debug/ServiceBasket.dll
 *.dll
 ServiceBasket/Database.sqlite
-*.dll
+ServiceBasket/bin
