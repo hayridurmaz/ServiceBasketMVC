@@ -68,6 +68,7 @@ namespace ServiceBasket.Controllers
                 IsAdmin = false,
                 IsActive = true,
                 RegisterDate = DateTime.Now,
+                Age = registerCredential.Age,
                 IsProvider = registerCredential.IsProvider
             };
             //Add user
