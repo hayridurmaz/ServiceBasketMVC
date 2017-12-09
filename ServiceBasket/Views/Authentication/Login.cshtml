@@ -8,12 +8,12 @@
 <form method="post" action="~/Authentication/Login">
 <label>
     User Name:
-    <input type="text" name="UserId" value="@Model.UserId" />
+    <input type="text" name="UserId" value="@Model.UserId" required/>
 </label>
 <br />
 <label>
     Password:
-    <input type="password" name="Password" value="@Model.Password" />
+    <input type="password" name="Password" value="@Model.Password" required/>
 </label>
 <br />
 <input type="submit" name="send" value="Login" />
