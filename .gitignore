@@ -5,3 +5,5 @@ ServiceBasket/obj/Debug/ServiceBasket.dll
 ServiceBasket/bin/ServiceBasket.pdb
 ServiceBasket/Database.sqlite
 ServiceBasket/bin
+ServiceBasket/bin/ServiceBasket.dll
+*.dll
