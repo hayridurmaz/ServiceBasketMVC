@@ -23,14 +23,14 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    @if (Session["LoggedIn"]==null || Session["LoggedIn"].Equals(false))
+                    @if (Session["LoggedIn"] == null || Session["LoggedIn"].Equals(false))
                     {
                         <li>@Html.ActionLink("Login", "Login", "Authentication")</li>
                         <li>@Html.ActionLink("SignUp", "Signup", "Authentication")</li>
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Profile", "Profile", "Authentication")</li>
+                        <li>@Html.ActionLink(Session["userId"].ToString()+" Profile", "Profile", "Authentication")</li>
                         <li>@Html.ActionLink("Log Out", "Logout", "Authentication")</li>
                     }
 

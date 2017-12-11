@@ -44,4 +44,3 @@ C:\Users\Hayri Durmaz\source\repos\ServiceBasket\ServiceBasket\bin\Microsoft.AI.
 C:\Users\Hayri Durmaz\source\repos\ServiceBasket\ServiceBasket\obj\Debug\ServiceBasket.csproj.CoreCompileInputs.cache
 C:\Users\Hayri Durmaz\source\repos\ServiceBasket\ServiceBasket\obj\Debug\ServiceBasket.dll
 C:\Users\Hayri Durmaz\source\repos\ServiceBasket\ServiceBasket\obj\Debug\ServiceBasket.pdb
-C:\Users\Hayri Durmaz\source\repos\ServiceBasket\ServiceBasket\obj\Debug\ServiceBasket.csprojResolveAssemblyReference.cache
