@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "AddService";
+}
+
+<h2>Add a Service</h2>
+
+<form method="post" action="~/Authentication/Login">
+    <label>
+        Title:
+        <input type="text" name="Title" value="@Model.Title" required />
+    </label>
+    <br />
+    <label>
+        Description:
+        <input type="text" name="Description" value="@Model.Description" required />
+    </label>
+    <br />
+    <input type="submit" name="send" value="AddService" />
+</form>
+

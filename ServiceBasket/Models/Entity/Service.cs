@@ -7,12 +7,14 @@ namespace ServiceBasket.Models.Entity
 {
     public class Service
     {
-        long ServiceId { get; set; }
-        String Title { get; set; }
-        String Description { get; set; }
-        User Owner { get; set; }
-        List<Comment> Comments { get; set; }
-        Service()
+        public long ServiceId { get; set; }
+        public String Title { get; set; }
+        public String Description { get; set; }
+        public String Category { get; set; }
+        public User Owner { get; set; }
+        public List<Comment> Comments { get; set; }
+        public DateTime date { get; set; }
+        public Service()
         {
             Comments = new List<Comment>();
         }
