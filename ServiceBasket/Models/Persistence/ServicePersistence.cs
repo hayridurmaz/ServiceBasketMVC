@@ -36,7 +36,7 @@ namespace ServiceBasket.Models.Persistence
         public static bool AddService(Service service)
         {
             //System.Diagnostics.Debug.WriteLine("DateTime: " + service.RegisterDate.ToString("yyyy-MM-dd"));
-            int isadmin = 0, isactive = 0, isprovider = 0;
+            //int isadmin = 0, isactive = 0, isprovider = 0;
 
             string sql = "insert into SERVICE (Title, Description, OwnerUserId, Category, addDate) values ('"
                 + service.Title + "', '"
