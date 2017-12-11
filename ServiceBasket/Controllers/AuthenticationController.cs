@@ -20,6 +20,7 @@ namespace ServiceBasket.Controllers
         {
             return View();
         }
+
         
         [HttpGet]
         public ActionResult SignUp()
