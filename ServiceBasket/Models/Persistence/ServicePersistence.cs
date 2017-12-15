@@ -55,10 +55,10 @@ namespace ServiceBasket.Models.Persistence
         }
         public static Service GetService(long serviceId)
         {
-            new UserPersistence();
+            new ServicePersistence();
             foreach (Service service in services)
             {
-                System.Diagnostics.Debug.WriteLine("userID:: " + service.ServiceId);
+                //System.Diagnostics.Debug.WriteLine("userID:: " + service.ServiceId);
                 if (serviceId == service.ServiceId)
                 {
                     return service;
