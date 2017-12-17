@@ -13,7 +13,7 @@ namespace ServiceBasket.Controllers
         // GET: Service
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -27,12 +27,35 @@ namespace ServiceBasket.Controllers
         [HttpPost]
         public ActionResult AddService(Service service)
         {
+            if (Session["userId"]==null)
+            {
+                TempData["serviceAdded"] = "Please Log in.";
+                return View(service);
+            }
             service.Owner = UserPersistence.GetUser(Session["userId"].ToString());
-            if (ServicePersistence.AddService(service))
+            service.Comments = null;
+            service.date = DateTime.Now;
+            bool acceptible = ServicePersistence.AddService(service);
+            if ((acceptible!=null))
             {
 
+                if (acceptible==true)
+                {
+                    TempData["serviceAdded"] = "Service is added successfully.";
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    TempData["serviceAdded"] = "Service could not be added.";
+                    return View(service);
+                }
             }
-            return View();
+            else
+            {
+                TempData["serviceAdded"] = "Service could not be added.";
+                return View(service);
+            }
+            
         }
     }
 }

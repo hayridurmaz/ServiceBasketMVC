@@ -21,7 +21,7 @@ namespace ServiceBasket.Models.Persistence
                 DateTime addDate = Convert.ToDateTime(dataRow[5]);
                 Service service = new Service
                 {
-                    ServiceId = (long)dataRow[0],
+                    ServiceId = (Guid)dataRow[0],
                     Title = (string)dataRow[1],
                     Description = (string)dataRow[2],
                     Owner = UserPersistence.GetUser(dataRow[3].ToString()),
@@ -46,14 +46,19 @@ namespace ServiceBasket.Models.Persistence
                 + service.date.ToString("yyyy-MM-dd") + "')";
 
 
-            RepositoryManager.Repository.DoCommand(sql);
+            int returned = RepositoryManager.Repository.DoCommand(sql);
+            System.Diagnostics.Debug.WriteLine("returned: " + returned);
             if (GetService(service.ServiceId) == null)
             {
                 services.Add(service);
             }
+            if (returned < 0)
+            {
+                return false;
+            }
             return true;
         }
-        public static Service GetService(long serviceId)
+        public static Service GetService(Guid serviceId)
         {
             new ServicePersistence();
             foreach (Service service in services)
