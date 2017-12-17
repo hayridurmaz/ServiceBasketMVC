@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.SQLite;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ServiceBasket.Models.Entity
@@ -10,8 +11,7 @@ namespace ServiceBasket.Models.Entity
     {
      
         
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long ServiceId { get; set; }
+        //public int ServiceId { get; set; }
         public String Title { get; set; }
         public String Description { get; set; }
         public String Category { get; set; }

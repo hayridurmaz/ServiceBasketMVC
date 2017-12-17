@@ -9,10 +9,10 @@ namespace ServiceBasket.Models.Transaction
 {
     public class ServiceManager
         
-    {      public static bool AddNewUser(Service newService)
+    {      public static bool AddNewService(Service newService)
         {
             // Verify that the service doesn't already exist
-            Service oldService = ServicePersistence.GetService(newService.ServiceId);
+            Service oldService = ServicePersistence.GetService(newService.Title);
             // oldService should be null, if this is a new service
             if (oldService != null)
             {
@@ -24,7 +24,7 @@ namespace ServiceBasket.Models.Transaction
         public static bool DeleteService(Service delService)
         {
             // Verify that the service already exists
-            Service oldService = ServicePersistence.GetService(delService.ServiceId);
+            Service oldService = ServicePersistence.GetService(delService.Title);
             // oldUser shouldnot be null, if this is a old user
             if (oldService == null)
             {
@@ -36,7 +36,7 @@ namespace ServiceBasket.Models.Transaction
         public static bool ChangeService(Service upService)
         {
             // Verify that the service already exists
-            Service oldService = ServicePersistence.GetService(upService.ServiceId);
+            Service oldService = ServicePersistence.GetService(upService.Title);
             // oldUser shouldnot be null, if this is a old user
             if (oldService == null)
             {

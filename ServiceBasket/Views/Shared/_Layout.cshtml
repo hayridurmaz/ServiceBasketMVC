@@ -34,16 +34,21 @@
                         {
                             <li>@Html.ActionLink(Session["userId"].ToString() + " Profile", "Profile", "Authentication")</li>
                             <li>@Html.ActionLink("Log Out", "Logout", "Authentication")</li>
+                            <li>@Html.ActionLink("Add Service", "AddService", "Service")</li>
+                            <li>@Html.ActionLink("Services", "ServiceList", "Service")</li>
                         }
                         else if (Session["IsProvider"].Equals(true))
                         {
                             <li>@Html.ActionLink(Session["userId"].ToString() + " Profile", "Profile", "Authentication")</li>
                             <li>@Html.ActionLink("Log Out", "Logout", "Authentication")</li>
+                            <li>@Html.ActionLink("Add Service", "AddService", "Service")</li>
+                            <li>@Html.ActionLink("Services", "ServiceList", "Service")</li>
                         }
                         else
                         {
                             <li>@Html.ActionLink(Session["userId"].ToString() + " Profile", "Profile", "Authentication")</li>
-                            <li>@Html.ActionLink("Log Out", "Logout", "Authentication")</li>
+                            <li>@Html.ActionLink("Log Out", "Logout", "Authentication")</li>                        
+                            <li>@Html.ActionLink("Services", "ServiceList", "Service")</li>
                         }
                     }
 

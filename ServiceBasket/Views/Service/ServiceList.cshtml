@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ServiceList";
+}
+
+<h2>ServiceList</h2>
+
+@model List<ServiceBasket.Models.Entity.Service>
+
+<MyObject>
+    <ul>
+
+
+        @foreach (var item in Model)
+    {
+        <li>@item.Title</li>
+}
+    </ul>

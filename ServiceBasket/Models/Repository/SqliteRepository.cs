@@ -125,8 +125,8 @@ namespace ServiceBasket.Models.Repository
                     "RegisterDate DATE, IsProvider INT, Age INT, PRIMARY KEY(UserId))";
                 DoCommand(sql);
 
-                sql = "CREATE TABLE SERVICE (ServiceId INT AUTOINCREMENT, " +
-                    "Title VARCHAR(50),Description VARCHAR(500), OwnerUserId VARCHAR(50), Category VARCHAR(50), addDate DATE, PRIMARY KEY(ServiceId))";//kategori ekle!!
+                sql = "CREATE TABLE SERVICE (" +
+                    "Title VARCHAR(50) NOT NULL, Description VARCHAR(500), OwnerUserId VARCHAR(50), Category VARCHAR(50), addDate DATE, PRIMARY KEY(Title))";//kategori ekle!!
                 DoCommand(sql);
 
                 sql = "CREATE TABLE COMMENT (CommentId decimal AUTOINCREMET, " +

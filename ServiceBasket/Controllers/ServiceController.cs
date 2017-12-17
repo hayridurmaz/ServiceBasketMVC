@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ServiceBasket.Models.Entity;
 using ServiceBasket.Models.Persistence;
+using ServiceBasket.Models.Transaction;
 
 namespace ServiceBasket.Controllers
 {
@@ -13,8 +14,15 @@ namespace ServiceBasket.Controllers
         // GET: Service
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "Home");
+            return View();
         }
+
+        public ActionResult ServiceList()
+        {
+            List<Service> services = ServiceBasket.Models.Persistence.ServicePersistence.GetAllServices();
+            return View(services);
+        }
+
 
 
         [HttpGet]
@@ -35,7 +43,8 @@ namespace ServiceBasket.Controllers
             service.Owner = UserPersistence.GetUser(Session["userId"].ToString());
             service.Comments = null;
             service.date = DateTime.Now;
-            bool acceptible = ServicePersistence.AddService(service);
+            bool? acceptible = false; 
+            acceptible = ServiceManager.AddNewService(service);
             if ((acceptible!=null))
             {
 

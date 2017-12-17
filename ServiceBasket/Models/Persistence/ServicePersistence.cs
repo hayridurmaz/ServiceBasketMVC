@@ -10,6 +10,7 @@ namespace ServiceBasket.Models.Persistence
     public class ServicePersistence
     {
         static List<Service> services;
+        static long ServiceId = 1;
         static ServicePersistence()
         {
             services = new List<Service>();
@@ -18,14 +19,14 @@ namespace ServiceBasket.Models.Persistence
 
             foreach (object[] dataRow in rows)
             {
-                DateTime addDate = Convert.ToDateTime(dataRow[5]);
+                DateTime addDate = Convert.ToDateTime(dataRow[4]);
                 Service service = new Service
                 {
-                    ServiceId = (Guid)dataRow[0],
-                    Title = (string)dataRow[1],
-                    Description = (string)dataRow[2],
-                    Owner = UserPersistence.GetUser(dataRow[3].ToString()),
-                    Category = (string)dataRow[4],
+                    
+                    Title = (string)dataRow[0],
+                    Description = (string)dataRow[1],
+                    Owner = UserPersistence.GetUser(dataRow[2].ToString()),
+                    Category = (string)dataRow[3],
                     Comments = null,//will change!!!!!
                     date = addDate
                 };
@@ -47,8 +48,9 @@ namespace ServiceBasket.Models.Persistence
 
 
             int returned = RepositoryManager.Repository.DoCommand(sql);
+            ServiceId++;
             System.Diagnostics.Debug.WriteLine("returned: " + returned);
-            if (GetService(service.ServiceId) == null)
+            if (GetService(service.Title) == null)
             {
                 services.Add(service);
             }
@@ -58,13 +60,13 @@ namespace ServiceBasket.Models.Persistence
             }
             return true;
         }
-        public static Service GetService(Guid serviceId)
+        public static Service GetService(String sId)
         {
             new ServicePersistence();
             foreach (Service service in services)
             {
-                //System.Diagnostics.Debug.WriteLine("userID:: " + service.ServiceId);
-                if (serviceId == service.ServiceId)
+                System.Diagnostics.Debug.WriteLine("userID:: " + service.Title);
+                if (sId.Equals(service.Title))
                 {
                     return service;
                 }

@@ -223,6 +223,8 @@
     <Content Include="Views\Authentication\Logout.cshtml" />
     <Content Include="Views\Authentication\SignUp.cshtml" />
     <Content Include="Views\Service\AddService.cshtml" />
+    <Content Include="Views\Service\ServiceList.cshtml" />
+    <Content Include="Views\Service\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

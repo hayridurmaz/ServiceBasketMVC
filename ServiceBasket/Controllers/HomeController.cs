@@ -10,6 +10,7 @@ namespace ServiceBasket.Controllers
     {
         public ActionResult Index()
         {
+            String html= "<div id =\"div1\"> <h1> Its Heading </h1> </div>";
             return View();
         }
 
