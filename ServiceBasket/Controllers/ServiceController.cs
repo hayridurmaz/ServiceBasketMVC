@@ -28,6 +28,10 @@ namespace ServiceBasket.Controllers
         public ActionResult AddService(Service service)
         {
             service.Owner = UserPersistence.GetUser(Session["userId"].ToString());
+            if (ServicePersistence.AddService(service))
+            {
+
+            }
             return View();
         }
     }

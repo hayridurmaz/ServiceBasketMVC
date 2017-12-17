@@ -25,8 +25,8 @@ namespace ServiceBasket.Models.Persistence
                     Title = (string)dataRow[1],
                     Description = (string)dataRow[2],
                     Owner = UserPersistence.GetUser(dataRow[3].ToString()),
-                    Category=(string)dataRow[4],
-                    Comments = null,
+                    Category = (string)dataRow[4],
+                    Comments = null,//will change!!!!!
                     date = addDate
                 };
                 services.Add(service);
@@ -43,7 +43,7 @@ namespace ServiceBasket.Models.Persistence
                 + service.Description + "', '"
                 + service.Owner.UserId + "', '"
                 + service.Category + "', '"
-                + service.date.ToString("yyyy-MM-dd")+"')";
+                + service.date.ToString("yyyy-MM-dd") + "')";
 
 
             RepositoryManager.Repository.DoCommand(sql);
