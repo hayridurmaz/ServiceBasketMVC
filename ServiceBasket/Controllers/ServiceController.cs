@@ -22,7 +22,18 @@ namespace ServiceBasket.Controllers
             List<Service> services = ServiceBasket.Models.Persistence.ServicePersistence.GetAllServices();
             return View(services);
         }
+        
+        public ActionResult ServiceDetail(String title)
+        {
+            Service service = ServiceBasket.Models.Persistence.ServicePersistence.GetService(title);
+            if (service == null)
+            {
+                return RedirectToAction("Index", "Service");
+            }
+                return View(service);
 
+            
+        }
 
 
         [HttpGet]
