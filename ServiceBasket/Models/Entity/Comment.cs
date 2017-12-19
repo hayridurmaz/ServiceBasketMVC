@@ -7,9 +7,10 @@ namespace ServiceBasket.Models.Entity
 {
     public class Comment
     {
-        long CommentId { get; set; }
-        String Title { get; set; }
-        String Content { get; set; }
-        User Writer { get; set; }
+        public long CommentId { get; set; }
+        public String Title { get; set; }
+        public String Content { get; set; }
+        public User Writer { get; set; }
+        public Service Service { get; set; }
     }
 }
