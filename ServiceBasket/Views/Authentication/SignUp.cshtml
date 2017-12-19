@@ -54,8 +54,25 @@
                 valid = false
                 get('emailerr').innerHTML = 'Userid can contain only a-z, A-Z, 0-9,@@ and period'
             }
-            //match pass
+            //Password
             var Password = get('Password').value
+            get('passcheckerr').innerHTML = ''
+            if (! /^[a-zA-Z0-9]*$/.test(Password)) {
+                valid = false
+                get('passcheckerr').innerHTML = 'Password can contain only a-z, A-Z, 0-9'
+            }
+            //Age
+            var Age = get('Age').value
+            get('Ageerr').innerHTML = ''
+            if (! /^[0-9]*$/.test(Age)) {
+                valid = false
+                get('Ageerr').innerHTML = 'Age can contain only 0-9'
+            }
+            else if (Age > 100) {
+                valid = false
+                get('Ageerr').innerHTML = 'Are you really ' + Age+' years old ?'
+            }
+            //match pass
             var Password1 = get('Password1').value
             get('passerr').innerHTML = ''
             if (Password != Password1) {
@@ -87,6 +104,7 @@
             Password:
             <input type="password" name="Password" id="Password" value="@Model.Password" required onkeyup="passcheck();" />
         </label>
+        <span id="passcheckerr" class="errmsg"> </span>
     </p>
     <br />
     <p>
@@ -118,7 +136,7 @@
             Age:
             <input type="text" name="Age" id="Age" value="@Model.Age" required />
         </label>
-        <span id="ageerr" class="errmsg"> </span>
+        <span id="Ageerr" class="errmsg"> </span>
     </p>
         <br />
 

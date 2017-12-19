@@ -4,18 +4,55 @@
 }
 
 <h2>Login Page</h2>
+<style type="text/css">
+    .errmsg {
+        color: red;
+    }
+</style>
 
-<form method="post" action="~/Authentication/Login">
-<label>
-    User Name:
-    <input type="text" name="UserId" value="@Model.UserId" required/>
-</label>
-<br />
-<label>
-    Password:
-    <input type="password" name="Password" value="@Model.Password" required/>
-</label>
-<br />
+<script type="text/JavaScript">
+
+    function validateForm() {
+        // validate
+        var valid = true
+        //UserId
+        var UserId = get('UserId').value
+        get('useriderr').innerHTML = ''
+        if (! /^[\-a-zA-Z0-9]*$/.test(UserId)) {
+            valid = false
+            get('useriderr').innerHTML = 'Userid can contain only a-z, A-Z, 0-9, and hyphen'
+        }
+        //Password
+        var Password = get('Password').value
+        get('passerr').innerHTML = ''
+        if (! /^[a-zA-Z0-9]*$/.test(Password)) {
+            valid = false
+            get('passerr').innerHTML = 'Password can contain only a-z, A-Z, 0-9'
+        }
+
+        return valid
+    }
+
+    function get(id) { return document.getElementById(id) }
+</script>
+
+<form method="post" action="~/Authentication/Login" onsubmit="return validateForm()">
+    <p>
+        <label>
+            User Name:
+            <input type="text" name="UserId" id="UserId" value="@Model.UserId" required />
+        </label>
+        <span id="useriderr" class="errmsg"> </span>
+    </p>
+    <br />
+    <p>
+        <label>
+            Password:
+            <input type="password" name="Password" id="Password" value="@Model.Password" required />
+        </label>
+        <span id="passerr" class="errmsg"> </span>
+    </p>
+    <br />
 <input type="submit" name="send" value="Login" />
 </form>
 <p style="color:red">@TempData["loginMessage"]</p>
