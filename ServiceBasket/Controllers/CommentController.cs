@@ -33,6 +33,7 @@ namespace ServiceBasket.Controllers
             }
             comment.Writer = UserPersistence.GetUser(Session["userId"].ToString());
             comment.CommentId = CommentPersistence.getMaxId() + 1;
+            comment.Service= ServicePersistence.GetService()
 
             bool? acceptible = false;
             acceptible = CommentManager.AddNewComment(comment);
