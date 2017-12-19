@@ -31,8 +31,13 @@ namespace ServiceBasket.Controllers
                 return RedirectToAction("Index", "Service");
             }
                 return View(service);
-
             
+        }
+
+        [HttpGet]
+        public ActionResult AddComment()
+        {
+            return View(new Comment());
         }
 
 
@@ -46,13 +51,13 @@ namespace ServiceBasket.Controllers
         [HttpPost]
         public ActionResult AddService(Service service)
         {
-            if (Session["userId"]==null)
+            if (Session["userId"]==null || Session["IsProvider"].Equals(false))
             {
                 TempData["serviceAdded"] = "Please Log in.";
                 return View(service);
             }
             service.Owner = UserPersistence.GetUser(Session["userId"].ToString());
-            service.Comments = null;
+            service.Comments = CommentPersistence.getCommentsForaService(service);
             service.date = DateTime.Now;
             
             string t = service.Description.Replace("<", "&lt");

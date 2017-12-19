@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "AddComment";
+}
+
+<h2>AddComment</h2>
+
+<form method="post" action="~/Comment/AddComment">
+    <label>
+        Title:
+        <input type="text" name="Title" value="@Model.Title" required />
+    </label>
+    <br />
+    <label>
+        Comment:<br />
+        <textarea name="Content" cols="40" rows="5" required>@Model.Content</textarea>
+
+    </label>
+    <br />
+    <input type="submit" name="send" value="AddComment" />
+</form>
+<br />
+
