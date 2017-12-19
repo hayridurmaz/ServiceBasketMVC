@@ -54,6 +54,14 @@ namespace ServiceBasket.Controllers
             service.Owner = UserPersistence.GetUser(Session["userId"].ToString());
             service.Comments = null;
             service.date = DateTime.Now;
+            
+            string t = service.Description.Replace("<", "&lt");
+            string t1 = t.Replace(">", "&gt");
+            string t2 = t1.Replace("(", "&#40");
+            string t3 = t2.Replace(")", "&#41");
+            string t4 = t3.Replace("&", "&#38");
+            string tfinal = t4.Replace("|", "&#124");
+            service.Description = tfinal;
             bool? acceptible = false; 
             acceptible = ServiceManager.AddNewService(service);
             if ((acceptible!=null))
