@@ -81,7 +81,7 @@ namespace ServiceBasket.Controllers
             }
             else
             {
-                TempData["signupMessage"] = "Could not register, try again";
+                TempData["signupMessage"] = "User name " +registerCredential.UserId+" already exists, try again";
                 return View(registerCredential);
             }
 

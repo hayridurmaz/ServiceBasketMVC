@@ -126,14 +126,11 @@ namespace ServiceBasket.Models.Repository
                 DoCommand(sql);
 
                 sql = "CREATE TABLE SERVICE (" +
-                    "Title VARCHAR(50) NOT NULL, Description VARCHAR(500), OwnerUserId VARCHAR(50), Category VARCHAR(50), addDate DATE, PRIMARY KEY(Title))";//kategori ekle!!
+                    "Title VARCHAR(50) NOT NULL, Description VARCHAR(500), OwnerUserId VARCHAR(50), Category VARCHAR(50), addDate DATE, PRIMARY KEY(Title))";
                 DoCommand(sql);
 
-                sql = "CREATE TABLE COMMENT (CommentId decimal AUTOINCREMET, " +
-                    "Title VARCHAR(50), Content VARCHAR(500), WriterUserId VARCHAR(50), PRIMARY KEY(CommentId))";
-                DoCommand(sql);
-
-                sql = "CREATE TABLE WRITTENTO (CommentId decimal, ServiceId decimal)";
+                sql = "CREATE TABLE COMMENT (CommentId decimal NOT NULL, " +
+                    "Title VARCHAR(50), Content VARCHAR(500), WriterUserId VARCHAR(50), ServiceTitle VarChar(50), PRIMARY KEY(CommentId))";
                 DoCommand(sql);
 
             }
