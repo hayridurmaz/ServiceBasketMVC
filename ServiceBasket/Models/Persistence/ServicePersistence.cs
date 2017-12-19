@@ -30,6 +30,7 @@ namespace ServiceBasket.Models.Persistence
                     Comments = null,//will change!!!!!
                     date = addDate
                 };
+                service.Comments = CommentPersistence.getCommentsForaService(service);
                 services.Add(service);
             }
         }

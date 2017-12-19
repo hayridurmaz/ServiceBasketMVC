@@ -52,7 +52,7 @@ namespace ServiceBasket.Controllers
                 return View(service);
             }
             service.Owner = UserPersistence.GetUser(Session["userId"].ToString());
-            service.Comments = null;
+            service.Comments = CommentPersistence.getCommentsForaService(service);
             service.date = DateTime.Now;
             bool? acceptible = false; 
             acceptible = ServiceManager.AddNewService(service);
