@@ -22,9 +22,9 @@ _UpgradeReport_Files/
 ###############
 # Directories #
 ###############
-bin/
-obj/
-TestResults/
+ServiceBasket/bin/
+ServiceBasket/obj/
+ServiceBasket/TestResults/
 ###################
 # Web publish log #
 ###################
@@ -89,3 +89,7 @@ ipch/
 *.vsp
 *.vspx
 *.sap
+*.ide-wal
+*.ide-shm
+*.ide-wal
+
