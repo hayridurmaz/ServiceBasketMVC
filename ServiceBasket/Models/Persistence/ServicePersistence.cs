@@ -69,6 +69,7 @@ namespace ServiceBasket.Models.Persistence
                 System.Diagnostics.Debug.WriteLine("userID:: " + service.Title);
                 if (sId.Equals(service.Title))
                 {
+                    service.Comments = CommentPersistence.getCommentsForaService(service);
                     return service;
                 }
             }
@@ -77,6 +78,7 @@ namespace ServiceBasket.Models.Persistence
 
         public static List<Service> GetAllServices()
         {
+            //new ServicePersistence();
             return services;
         }
 

@@ -22,7 +22,18 @@ namespace ServiceBasket.Controllers
             List<Service> services = ServiceBasket.Models.Persistence.ServicePersistence.GetAllServices();
             return View(services);
         }
-        
+        public ActionResult ServiceDetail(String title)
+        {
+            Service service = ServicePersistence.GetService(title);
+            service.Comments = CommentPersistence.getCommentsForaService(service);
+            Comment comment = new Comment();
+
+            return View(Tuple.Create(service,comment));
+        }
+
+     
+    
+        /*
         public ActionResult ServiceDetail(String title)
         {
             Service service = ServiceBasket.Models.Persistence.ServicePersistence.GetService(title);
@@ -33,6 +44,7 @@ namespace ServiceBasket.Controllers
                 return View(service);
             
         }
+        */
 
         [HttpGet]
         public ActionResult AddService()
@@ -89,11 +101,11 @@ namespace ServiceBasket.Controllers
         {
             Comment comment = new Comment();
             comment.Service = ServicePersistence.GetService(service.Title);
-            return View(comment);
+            return View("ServiceDetail");
         }
 
         [HttpPost]
-        public ActionResult AddComment(Comment comment)
+        public ActionResult AddComment(Service service, Comment comment)
         {
             if (Session["userId"] == null)
             {
@@ -102,7 +114,7 @@ namespace ServiceBasket.Controllers
             }
             comment.Writer = UserPersistence.GetUser(Session["userId"].ToString());
             comment.CommentId = CommentPersistence.getMaxId() + 1;
-
+            comment.Service = ServicePersistence.GetService(service.Title);
             bool? acceptible = false;
             acceptible = CommentManager.AddNewComment(comment);
             if ((acceptible != null))
