@@ -75,8 +75,24 @@ namespace ServiceBasket.Models.Persistence
             return null;
         }
 
+        public static Service GetService(String sId)
+        {
+            new ServicePersistence();
+            foreach (Service service in services)
+            {
+                System.Diagnostics.Debug.WriteLine("userID:: " + service.Title);
+                if (sId.Equals(service.Title))
+                {
+                    service.Comments = CommentPersistence.getCommentsForaService(service);
+                    return service;
+                }
+            }
+            return null;
+        }
+
         public static List<Service> GetAllServices()
         {
+            //new ServicePersistence();
             return services;
         }
 
@@ -88,6 +104,7 @@ namespace ServiceBasket.Models.Persistence
         public static bool DeleteService(Service service)
         {
             return false;
+
         }
 
     }

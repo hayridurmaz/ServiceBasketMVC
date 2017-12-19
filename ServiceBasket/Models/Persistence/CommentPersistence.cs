@@ -33,24 +33,25 @@ namespace ServiceBasket.Models.Persistence
                 comments.Add(comment);
             }
         }
-        public static int getMaxId()
+        public static long getMaxId()
         {
             String sql = "Select * from COMMENT ORDER BY CommentId DESC LIMIT 1";
             List<object[]> rows = RepositoryManager.Repository.DoQuery(sql);
-            if (rows.ElementAt(0) == null)
+            if (rows.Count==0)
             {
-                return 1;
+                return 0;
             }
+            long toreturn=comments.ElementAt(comments.Count - 1).CommentId;
             object[] aRow = rows.ElementAt(0);
-            return (int)aRow[0];
+            return toreturn;
         }
 
         public static bool AddComment(Comment comment)
         {
             //System.Diagnostics.Debug.WriteLine("DateTime: " + service.RegisterDate.ToString("yyyy-MM-dd"));
             //int isadmin = 0, isactive = 0, isprovider = 0;
-            int id = getMaxId() + 1;
-            string sql = "insert into COMMENT (CommentId, Title, Content, WriterUserId, ServiceTitle) values ('"
+            long id = getMaxId() + 1;
+            String sql = "insert into COMMENT (CommentId, Title, Content, WriterUserId, ServiceTitle) values ('"
                 + id + "', '"
                 + comment.Title + "', '"
                 + comment.Content + "', '"
@@ -88,8 +89,10 @@ namespace ServiceBasket.Models.Persistence
         public static List<Comment> getCommentsForaService(Service service)
         {
             List<Comment> coms = new List<Comment>();
-            foreach(Comment com in comments)
+            System.Diagnostics.Debug.WriteLine("comment len:: " + comments.Count);
+            foreach (Comment com in comments)
             {
+                System.Diagnostics.Debug.WriteLine("com service title:: " + com.Service.Title);
                 if (com.Service.Equals(service)){
                     coms.Add(com);
                 }

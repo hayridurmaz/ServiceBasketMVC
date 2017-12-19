@@ -1,13 +1,16 @@
 ﻿
 @{
     ViewBag.Title = "ServiceDetail";
+
 }
-@model ServiceBasket.Models.ViewModels.ServiceDetailViewModel
+@using ServiceBasket.Models.Entity;
 
-<h2> @Model.Serv. </h2>
+@model Tuple <Service,Comment>
 
-<p>Service provider is @Model.Owner.Name and this is the discription of his service:</p>
-<p>@Model.Description</p>
+<h2> @Model.Item1.Title</h2>
+
+<p>Service provider is @Model.Item1.Owner.Name and this is the discription of his service:</p>
+<p>@Model.Item1.Description</p>
 
 
 <br />
@@ -15,12 +18,12 @@
 <form method="post" action="~/Service/AddComment">
     <label>
         Title:
-        <input type="text" name="Title" value="@Model.Title" required />
+        <input type="text" name="Title" value="@Model.Item2.Title" required />
     </label>
     <br />
     <label>
         Comment:<br />
-        <textarea name="Content" cols="40" rows="5" required>@Model.Content</textarea>
+                <textarea name="Content" cols="40" rows="5" required>@Model.Item2.Content</textarea>
     </label>
     <br />
     <input type="submit" name="send" value="AddComment" />
@@ -29,10 +32,12 @@
 
 <ul>
 
-
-    @foreach (var item in Model.Serv.Comme)
+    @Model.Item1.Comments.Count
+    @foreach (var item in Model.Item1.Comments)
     {
-        <li><h1>@item.Title</h1><br />
-    <p>@item.Content</p></li>
+        <li>
+            <h1>@item.Title</h1><br />
+            <p>@item.Content</p>
+        </li>
     }
-    </ul>
+</ul>
