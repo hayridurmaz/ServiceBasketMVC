@@ -4,17 +4,41 @@
 }
 
 <h2>Add a Service</h2>
+<style type="text/css">
+    .errmsg {
+        color: red;
+    }
+</style>
 
-<form method="post" action="~/Service/AddService">
+<script type="text/JavaScript">
+
+    function validateForm() {
+        // validate
+        var valid = true
+        //Title
+        var Title = get('Title').value
+        get('Titleerr').innerHTML = ''
+        if (! /^[\-a-zA-Z0-9]*$/.test(Title)) {
+            valid = false
+            get('Titleerr').innerHTML = 'Title can contain only a-z, A-Z, 0-9, and hyphen'
+        }
+
+        return valid
+    }
+
+    function get(id) { return document.getElementById(id) }
+</script>
+
+<form method="post" action="~/Service/AddService" onsubmit="return validateForm()">
     <label>
         Title:
-        <input type="text" name="Title" value="@Model.Title" required />
+        <input type="text" name="Title" id="Title" value="@Model.Title" required />
     </label>
+    <span id="Titleerr" class="errmsg"> </span>
     <br />
     <label>
         Description:<br />
         <textarea name="Description" cols="40" rows="5" required>@Model.Description</textarea>
-        
     </label>
     <br />
     <label>
