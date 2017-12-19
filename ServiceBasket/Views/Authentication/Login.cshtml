@@ -4,6 +4,12 @@
 }
 
 <h2>Login Page</h2>
+<style type="text/css">
+    .errmsg {
+        color: red;
+    }
+</style>
+
 <script type="text/JavaScript">
 
     function validateForm() {
@@ -19,7 +25,7 @@
         //Password
         var Password = get('Password').value
         get('passerr').innerHTML = ''
-        if (! /^[\-a-zA-Z0-9]*$/.test(UserId)) {
+        if (! /^[a-zA-Z0-9]*$/.test(Password)) {
             valid = false
             get('passerr').innerHTML = 'Password can contain only a-z, A-Z, 0-9'
         }

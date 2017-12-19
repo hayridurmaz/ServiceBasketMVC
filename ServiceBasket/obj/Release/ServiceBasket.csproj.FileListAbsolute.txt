@@ -45,3 +45,7 @@ C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\obj\Release\Servic
 C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\obj\Release\ServiceBasket.csproj.CoreCompileInputs.cache
 C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\obj\Release\ServiceBasket.dll
 C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\obj\Release\ServiceBasket.pdb
+C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\bin\EntityFramework.dll
+C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\bin\EntityFramework.SqlServer.dll
+C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\bin\EntityFramework.xml
+C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\bin\EntityFramework.SqlServer.xml
