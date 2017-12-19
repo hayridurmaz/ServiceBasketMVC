@@ -93,3 +93,4 @@ ipch/
 *.ide-shm
 *.ide-wal
 
+*.config
