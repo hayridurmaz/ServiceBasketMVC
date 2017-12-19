@@ -4,7 +4,7 @@
 }
 @model ServiceBasket.Models.ViewModels.ServiceDetailViewModel
 
-<h2> @Model.Title </h2>
+<h2> @Model.Serv. </h2>
 
 <p>@Model.Description</p>
 <p>@Model.Owner.Name</p>
@@ -29,7 +29,7 @@
 <ul>
 
 
-    @foreach (var item in Model.Serv.Comm)
+    @foreach (var item in Model.Serv.Comme)
     {
         <li><h1>@item.Title</h1><br />
     <p>@item.Content</p></li>
