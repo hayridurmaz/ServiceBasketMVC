@@ -89,3 +89,4 @@ ipch/
 *.vsp
 *.vspx
 *.sap
+*.ide-wal
