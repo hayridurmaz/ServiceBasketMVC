@@ -320,3 +320,5 @@ ASALocalRun/
 *.binlog
 .vs/config/applicationhost.config
 *.config
+*.ide
+*.ide
