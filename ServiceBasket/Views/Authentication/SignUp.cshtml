@@ -55,6 +55,13 @@
                 valid = false
                 get('emailerr').innerHTML = 'Userid can contain only a-z, A-Z, 0-9,@@ and period'
             }
+            //Password
+            var Password = get('Password').value
+            get('passerr').innerHTML = ''
+            if (! /^[a-zA-Z0-9]*$/.test(UserId)) {
+                valid = false
+                get('passerr').innerHTML = 'Password can contain only a-z, A-Z, 0-9'
+            }
             //match pass
             var Password = get('Password').value
             var Password1 = get('Password1').value
