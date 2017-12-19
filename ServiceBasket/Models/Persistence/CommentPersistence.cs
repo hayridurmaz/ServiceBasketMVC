@@ -85,6 +85,18 @@ namespace ServiceBasket.Models.Persistence
             return null;
         }
 
+        public static List<Comment> getCommentsForaService(Service service)
+        {
+            List<Comment> coms = new List<Comment>();
+            foreach(Comment com in comments)
+            {
+                if (com.Service.Equals(service)){
+                    coms.Add(com);
+                }
+            }
+            return coms;
+        }
+
         public static List<Comment> GetAllComments()
         {
             return comments;
