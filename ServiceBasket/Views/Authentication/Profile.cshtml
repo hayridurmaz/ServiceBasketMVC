@@ -2,5 +2,17 @@
 @{
     ViewBag.Title = "Profile";
 }
-<h1>Welcome @Session["userId"]</h1>
+
+<h1>Welcome @Model.UserId</h1>
+
+<h2>Here are your profile information</h2>
+
+<p>UserId: @Model.UserId</p>
+
+<p>Name: @Model.Name</p>
+
+<p>Email: @Model.Email</p>
+
+<p>Status:@if (Model.IsActive) { <b>Active</b> } else {<b>Inactive</b>}</p>
+
 

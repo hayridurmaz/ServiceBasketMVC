@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "UserList";
+}
+<h2>UserList</h2>
+
+
+
+    
+<MyObject>
+    <table style="width:100%">
+
+        <tr>
+            <th>UserId</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>item.UserId</td>
+                <td>item.Name</td>
+                <td>item.Email</td>
+                <td>item.IsActive</td>
+            </tr>
+        }
+    </table>
+    

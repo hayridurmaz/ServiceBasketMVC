@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ServiceBasket.Models.Entity;
 using ServiceBasket.Models.Transaction;
+using ServiceBasket.Models.Persistence;
 
 namespace ServiceBasket.Controllers
 {
@@ -18,10 +19,15 @@ namespace ServiceBasket.Controllers
 
         public ActionResult Profile()
         {
-            return View();
+            User user = ServiceBasket.Models.Persistence.UserPersistence.GetUser(Session["userId"].ToString());
+            return View(user);
+        }
+        public ActionResult UserList()
+        {
+            List<User> users = ServiceBasket.Models.Persistence.UserPersistence.GetAllUsers();
+            return View(users);
         }
 
-        
         [HttpGet]
         public ActionResult SignUp()
         {
