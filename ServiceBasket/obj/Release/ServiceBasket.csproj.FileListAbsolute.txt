@@ -49,3 +49,5 @@ C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\bin\EntityFramewor
 C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\bin\EntityFramework.SqlServer.dll
 C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\bin\EntityFramework.xml
 C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\bin\EntityFramework.SqlServer.xml
+C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\bin\ImageResizer.dll
+C:\Users\user\Documents\GitHub\ServiceBasketMVC\ServiceBasket\bin\ImageResizer.xml
