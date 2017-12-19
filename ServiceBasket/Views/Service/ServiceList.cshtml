@@ -8,11 +8,14 @@
 @model List<ServiceBasket.Models.Entity.Service>
 
 <MyObject>
-    <ul>
+    <table style="width:100%">
 
 
         @foreach (var item in Model)
-    {
-        <li>@Html.ActionLink(item.Title,"ServiceDetail", new{title=item.Title})</li>
-    }
-    </ul>
+        {
+            
+            <tr>
+                <th>@Html.ActionLink(item.Title, "ServiceDetail", new { title = item.Title })</th>
+            </tr>
+        }
+    </table>
