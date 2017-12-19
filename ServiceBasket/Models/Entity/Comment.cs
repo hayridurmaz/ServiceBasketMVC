@@ -12,5 +12,11 @@ namespace ServiceBasket.Models.Entity
         public String Content { get; set; }
         public User Writer { get; set; }
         public Service Service { get; set; }
+
+        public Comment()
+        {
+
+        }
+
     }
 }
