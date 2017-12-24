@@ -25,11 +25,19 @@
         {
 
             <tr>
-                <td>item.UserId</td>
-                <td>item.Name</td>
-                <td>item.Email</td>
-                <td>item.IsActive</td>
-            </tr>
+                <td>@item.UserId</td>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                @if (@item.IsActive)
+                {
+                    <td> Active </td>
+                }
+                else
+                {
+                   <td>Inactive</td>
+                }
+
+</tr>
         }
     </table>
     
