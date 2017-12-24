@@ -9,10 +9,11 @@
 
 <p>UserId: @Model.UserId</p>
 
-<p>Name: @Model.Name</p>
+<p>Name: @Model.Name</p> 
+
 
 <p>Email: @Model.Email</p>
 
 <p>Status:@if (Model.IsActive) { <b>Active</b> } else {<b>Inactive</b>}</p>
 
-
+<p>@Html.ActionLink("Edit profile", "EditProfile", "Authentication")</p>

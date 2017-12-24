@@ -70,10 +70,11 @@ namespace ServiceBasket.Models.Persistence
                 users.Add(user);
             }
         }
+
         /*
-         * Add a Book to the database.
-         * Return true iff the add succeeds.
-         */
+* Add a Book to the database.
+* Return true iff the add succeeds.
+*/
         public static bool AddUser(User user)
         {
             System.Diagnostics.Debug.WriteLine("DateTime: " + user.RegisterDate.ToString("yyyy-MM-dd"));
@@ -138,7 +139,9 @@ namespace ServiceBasket.Models.Persistence
         // Not Implemented
         public static bool UpdateUser(User user)
         {
-            return false;
+            String sql = "UPDATE USER SET NAME= '" + user.Name + "' WHERE UserId=" + user.UserId;
+            RepositoryManager.Repository.DoCommand(sql);
+            return true ;
         }
         public static bool DeleteUser(User user)
         {

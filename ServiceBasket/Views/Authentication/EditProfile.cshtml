@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "EditProfile";
+}
+
+<h2>EditProfile</h2>
+
+<form method="post" action="~/Authentication/EditProfile" >
+    <p>
+        <label>
+             Name:
+            <input type="text" name="Name" id="Name" value="@Model.Name" required />
+        </label>
+        <span id="useriderr" class="errmsg"> </span>
+    </p>
+    <br />
+    <p>
+        <label>
+            Email:
+            <input type="text" name="Email" id="Email" value="@Model.Email" required />
+        </label>
+        <span id="passerr" class="errmsg"> </span>
+    </p>
+    <br />
+    <input type="submit" name="send" value="EditProfile" />

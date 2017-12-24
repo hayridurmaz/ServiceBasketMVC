@@ -10,7 +10,7 @@
 <div class="jumbotron">
     <h1>Welcome to ServiceBasket! </h1>
     <p class="lead">You can find several types of services, and their rates given by users here. How can we help you?</p>
-    <p><input type="text" name="search" size="350"/>&emsp; <input type="button" class="btn btn-primary btn-lg" value="Search &raquo;"/></p>
+    <p><form action="@Url.Action("Search", "Service", new {search = ViewData["search"]})"><input type="text" name="search" value="@ViewData["search"]" size="350" />&emsp; <input type="submit" class="btn btn-primary btn-lg" value="Search &raquo;" /></form></p>
 </div>
 
 <div class="row">

@@ -233,6 +233,8 @@
     <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Views\Service\ServiceDetail.cshtml" />
     <Content Include="Views\Authentication\UserList.cshtml" />
+    <Content Include="Views\Authentication\EditProfile.cshtml" />
+    <Content Include="Views\Service\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

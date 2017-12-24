@@ -22,6 +22,21 @@ namespace ServiceBasket.Controllers
             User user = ServiceBasket.Models.Persistence.UserPersistence.GetUser(Session["userId"].ToString());
             return View(user);
         }
+
+        [HttpGet]
+        public ActionResult EditProfile()
+        {
+            return View(UserPersistence.GetUser(Session["UserId"].ToString()));
+        }
+
+        [HttpPost]
+        public ActionResult EditProfile(User user)
+        {
+            UserManager.ChangeUser(user);
+            return RedirectToAction("Index", "Home");
+        }
+
+
         public ActionResult UserList()
         {
             List<User> users = ServiceBasket.Models.Persistence.UserPersistence.GetAllUsers();

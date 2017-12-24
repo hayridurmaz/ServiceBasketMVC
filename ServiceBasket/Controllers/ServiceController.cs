@@ -46,6 +46,11 @@ namespace ServiceBasket.Controllers
             
         }
         */
+        
+        public ActionResult Search(String search)
+        {
+            return View(ServicePersistence.Search(search));
+        }
 
         [HttpGet]
         public ActionResult AddService()

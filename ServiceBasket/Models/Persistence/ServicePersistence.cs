@@ -81,6 +81,18 @@ namespace ServiceBasket.Models.Persistence
             return services;
         }
 
+        public static List<Service> Search(String str)
+        {
+            List<Service> toReturn = new List<Service>();
+            foreach(Service s in services)
+            {
+                if(s.Category.Contains(str) ||s.Description.Contains(str)|| s.Title.Contains(str))
+                {
+                    toReturn.Add(s);
+                }
+            }
+            return toReturn;
+        }
         // Not Implemented
         public static bool UpdateService(Service service)
         {

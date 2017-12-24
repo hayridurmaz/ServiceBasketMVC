@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+<table style="width:100%">
+
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <th>@Html.ActionLink((string)item.Title, "ServiceDetail", new { title = item.Title })</th>
+        </tr>
+    }
+</table>
