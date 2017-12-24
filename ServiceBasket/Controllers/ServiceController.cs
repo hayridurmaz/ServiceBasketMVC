@@ -27,6 +27,7 @@ namespace ServiceBasket.Controllers
             Service service = ServicePersistence.GetService(title);
             service.Comments = CommentPersistence.getCommentsForaService(service);
             Comment comment = new Comment();
+            comment.Service = service;
 
             return View(Tuple.Create(service,comment));
         }
@@ -97,15 +98,15 @@ namespace ServiceBasket.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddComment(Service service)
+        public ActionResult AddComment(String sTitle)
         {
             Comment comment = new Comment();
-            comment.Service = ServicePersistence.GetService(service.Title);
+            comment.Service = ServicePersistence.GetService(sTitle);
             return View("ServiceDetail");
         }
 
         [HttpPost]
-        public ActionResult AddComment(Service service, Comment comment)
+        public ActionResult AddComment(Comment comment, String sTitle)
         {
             if (Session["userId"] == null)
             {
@@ -114,7 +115,8 @@ namespace ServiceBasket.Controllers
             }
             comment.Writer = UserPersistence.GetUser(Session["userId"].ToString());
             comment.CommentId = CommentPersistence.getMaxId() + 1;
-            comment.Service = ServicePersistence.GetService(service.Title);
+            System.Diagnostics.Debug.WriteLine("***"+ sTitle);
+            comment.Service = ServicePersistence.GetService(sTitle);
             bool? acceptible = false;
             acceptible = CommentManager.AddNewComment(comment);
             if ((acceptible != null))

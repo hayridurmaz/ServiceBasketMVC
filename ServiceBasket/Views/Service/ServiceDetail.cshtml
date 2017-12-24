@@ -5,17 +5,35 @@
 }
 @using ServiceBasket.Models.Entity;
 
-@model Tuple <Service,Comment>
+@model Tuple<Service, Comment>
 
-<h2> @Model.Item1.Title</h2>
+<h1> @Model.Item1.Title</h1>
+<h3>@Model.Item1.Category</h3>
 
-<p>Service provider is @Model.Item1.Owner.Name and this is the discription of his service:</p>
+<p>Here is @Model.Item1.Owner.Name's service for you:</p>
 <p>@Model.Item1.Description</p>
 
 
 <br />
+<br />
+<br />
 
-<form method="post" action="~/Service/AddComment">
+
+
+<p>Total @Model.Item1.Comments.Count comment on this service</p>
+<ul style="list-style-type:none">
+
+    
+    @foreach (var item in Model.Item1.Comments)
+    {
+        <li>
+            <h1>@item.Title</h1>
+            <p>@item.Content</p>
+        </li>
+    }
+</ul>
+
+<form method="post" action="@Url.Action("AddComment", "Service", new {sTitle = Model.Item1.Title})">
     <label>
         Title:
         <input type="text" name="Title" value="@Model.Item2.Title" required />
@@ -23,21 +41,8 @@
     <br />
     <label>
         Comment:<br />
-                <textarea name="Content" cols="40" rows="5" required>@Model.Item2.Content</textarea>
+        <textarea name="Content" cols="40" rows="5" required>@Model.Item2.Content</textarea>
     </label>
     <br />
     <input type="submit" name="send" value="AddComment" />
 </form>
-
-
-<ul>
-
-    @Model.Item1.Comments.Count
-    @foreach (var item in Model.Item1.Comments)
-    {
-        <li>
-            <h1>@item.Title</h1><br />
-            <p>@item.Content</p>
-        </li>
-    }
-</ul>

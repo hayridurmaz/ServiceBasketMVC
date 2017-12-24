@@ -77,7 +77,7 @@ namespace ServiceBasket.Models.Persistence
 
         public static List<Service> GetAllServices()
         {
-            //new ServicePersistence();
+            new ServicePersistence();
             return services;
         }
 
