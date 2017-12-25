@@ -79,6 +79,7 @@ namespace ServiceBasket.Controllers
             // Create the user
             String salt = EncryptionManager.PasswordSalt;
             System.Diagnostics.Debug.WriteLine("signup passhash: " + EncryptionManager.EncodePassword(registerCredential.Password, salt));
+            System.Diagnostics.Debug.WriteLine("signup salt: " + salt);
 
             User user = new User
             {
@@ -93,7 +94,10 @@ namespace ServiceBasket.Controllers
                 Age = registerCredential.Age,
                 IsProvider = registerCredential.IsProvider
             };
+            System.Diagnostics.Debug.WriteLine("user passhash: " + user.PasswordHash);
+            System.Diagnostics.Debug.WriteLine("user salt: " + user.Salt);
             //Add user
+
             bool result = UserManager.AddNewUser(user);
             if (result)
             {

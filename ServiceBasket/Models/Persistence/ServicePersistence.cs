@@ -47,6 +47,7 @@ namespace ServiceBasket.Models.Persistence
                 + service.Category + "', '"
                 + service.date.ToString("yyyy-MM-dd") + "')";
 
+            System.Diagnostics.Debug.WriteLine("service sql : " + sql);
 
             int returned = RepositoryManager.Repository.DoCommand(sql);
             ServiceId++;

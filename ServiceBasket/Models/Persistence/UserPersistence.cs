@@ -104,8 +104,8 @@ namespace ServiceBasket.Models.Persistence
                 + user.RegisterDate.ToString("yyyy-MM-dd") + "', "
                 + isprovider +", '"
                 + user.Age+"')";
-            
 
+            System.Diagnostics.Debug.WriteLine("user sql: " + sql);
             RepositoryManager.Repository.DoCommand(sql);
             if (GetUser(user.UserId) == null)
             {
