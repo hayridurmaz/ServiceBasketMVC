@@ -113,7 +113,8 @@ namespace ServiceBasket.Controllers
         [HttpPost]
         public ActionResult AddComment(Comment comment, String sTitle)
         {
-            if (Session["userId"] == null)
+            System.Diagnostics.Debug.WriteLine("sesss"+Session["LoggedIn"]);
+            if (Session["LoggedIn"] == null || Session["LoggedIn"].Equals(false) || Session["LoggedIn"].ToString().Length==0)
             {
                 TempData["commentAdded"] = "Please Log in.";
                 return View(comment);

@@ -10,50 +10,67 @@
 <div class="jumbotron">
     <h1>Welcome to ServiceBasket! </h1>
     <p class="lead">You can find several types of services, and their rates given by users here. How can we help you?</p>
-    <p><form action="@Url.Action("Search", "Service", new {search = ViewData["search"]})"><input type="text" name="search" value="@ViewData["search"]" size="350" />&emsp; <input type="submit" class="btn btn-primary btn-lg" value="Search &raquo;" /></form></p>
+    <p><form action="@Url.Action("Search", "Service", new { search = ViewData["search"] })"><input type="text" name="search" value="@ViewData["search"]" size="350" />&emsp; <input type="submit" class="btn btn-primary btn-lg" value="Search &raquo;" /></form></p>
 </div>
 
 <div class="row">
     <h1>Some Services</h1>
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        @{var a = Model[new Random().Next(Model.Count)];
+        <h2>@a.Title</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            @a.Description
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Details &raquo;</a></p>
+        <input type="button" class="btn btn-default" value="Details &raquo;" onclick="location.href='@Url.Action("ServiceDetail", "Service", new { title = a.Title })'" />
+        }
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Details &raquo;</a></p>
+        @{var b = Model[new Random().Next(Model.Count)];
+        <h2>@b.Title</h2>
+        <p>
+            @b.Description
+        </p>
+        <input type="button" class="btn btn-default" value="Details &raquo;" onclick="location.href='@Url.Action("ServiceDetail", "Service", new { title = b.Title })'" />
+        }
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Details &raquo;</a></p>
+        <div class="col-md-4">
+            @{var c = Model[new Random().Next(Model.Count)];
+        <h2>@c.Title</h2>
+        <p>
+            @c.Description
+        </p>
+        <input type="button" class="btn btn-default" value="Details &raquo;" onclick="location.href='@Url.Action("ServiceDetail", "Service", new { title = c.Title })'" />
+            }
+        </div>
+  
     </div>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Details &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Details &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Details &raquo;</a></p>
-    </div>
-</div>
+    <div class="row">
+        <div class="col-md-4">
+            @{var d = Model[new Random().Next(Model.Count)];
+            <h2>@d.Title</h2>
+            <p>
+                @d.Description
+            </p>
+            <input type="button" class="btn btn-default" value="Details &raquo;" onclick="location.href='@Url.Action("ServiceDetail", "Service", new { title = d.Title })'" />
+            }
+        </div>
+        <div class="col-md-4">
+            @{var e = Model[new Random().Next(Model.Count)];
+            <h2>@e.Title</h2>
+            <p>
+                @e.Description
+            </p>
+            <input type="button" class="btn btn-default" value="Details &raquo;" onclick="location.href='@Url.Action("ServiceDetail", "Service", new { title = e.Title })'" />
+            }
+            </div>
+            <div class="col-md-4">
+                @{var f = Model[new Random().Next(Model.Count)];
+                <h2>@f.Title</h2>
+                <p>
+                    @f.Description
+                </p>
+                <input type="button" class="btn btn-default" value="Details &raquo;" onclick="location.href='@Url.Action("ServiceDetail", "Service", new { title = f.Title })'" />
+                }
+            </div>
+        </div>
