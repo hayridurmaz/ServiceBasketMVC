@@ -35,24 +35,27 @@
 
     function get(id) { return document.getElementById(id) }
 </script>
-
-<form method="post" action="~/Authentication/Login" onsubmit="return validateForm()">
-    <p>
-        <label>
-            User Name:
-            <input type="text" name="UserId" id="UserId" value="@Model.UserId" required />
-        </label>
-        <span id="useriderr" class="errmsg"> </span>
-    </p>
-    <br />
-    <p>
-        <label>
-            Password:
-            <input type="password" name="Password" id="Password" value="@Model.Password" required />
-        </label>
-        <span id="passerr" class="errmsg"> </span>
-    </p>
-    <br />
-<input type="submit" name="send" value="Login" />
-</form>
-<p style="color:red">@TempData["loginMessage"]</p>
+<div class="form">
+    <form method="post" action="~/Authentication/Login" onsubmit="return validateForm()">
+        <p>
+            <label>
+                User Name:
+                <input type="text" name="UserId" id="UserId" value="@Model.UserId" placeholder="Enter your user name here.." required />
+            </label>
+            <br />
+            <span id="useriderr" class="errmsg"> </span>
+        </p>
+        <br />
+        <p>
+            <label>
+                Password:
+                <input type="password" name="Password" id="Password" value="@Model.Password" required />
+            </label>
+            <br />
+            <span id="passerr" class="errmsg"> </span>
+        </p>
+        <br />
+        <input type="submit" name="send" value="Login" />
+    </form>
+    <p style="color:red">@TempData["loginMessage"]</p>
+</div>
