@@ -5,20 +5,17 @@
 
 <h2>ServiceList</h2>
 
-
 @model List<ServiceBasket.Models.Entity.Service>
 
 <MyObject>
     <table style="width:100%">
 
-        <tr>
-            <th>Service Name</th>
-        </tr>
+
         @foreach (var item in Model)
         {
             
             <tr>
-                <td>@Html.ActionLink(item.Title, "ServiceDetail", new { title = item.Title })</td>
+                <th>@Html.ActionLink(item.Title, "ServiceDetail", new { title = item.Title })</th>
             </tr>
         }
     </table>

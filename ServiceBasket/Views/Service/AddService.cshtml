@@ -28,32 +28,32 @@
 
     function get(id) { return document.getElementById(id) }
 </script>
-<div class="form">
-    <form method="post" action="~/Service/AddService" onsubmit="return validateForm()">
-        <label>
-            Title:
-            <input type="text" name="Title" id="Title" value="@Model.Title" required />
-        </label>
-        <span id="Titleerr" class="errmsg"> </span>
-        <br />
-        <label>
-            Description:<br />
-            <textarea name="Description" cols="40" rows="5" required>@Model.Description</textarea>
-        </label>
-        <br />
-        <label>
-            Category:
-            <select name="Category">
-                <option value="@Model.Category">Plumbing</option>
-                <option value="@Model.Category">Electrical installation</option>
-                <option value="@Model.Category">House Painter</option>
-                <option value="@Model.Category">Cleaner</option>
-                <option value="@Model.Category">Locksmith</option>
-                <option value="@Model.Category">Dry Cleaning</option>
-            </select>
-        </label>
-        <br />
-        <input type="submit" name="send" value="AddService" />
-    </form>
-    <p style="color:red">@TempData["serviceAdded"]</p>
-</div>
+
+<form method="post" action="~/Service/AddService" onsubmit="return validateForm()">
+    <label>
+        Title:
+        <input type="text" name="Title" id="Title" value="@Model.Title" required />
+    </label>
+    <span id="Titleerr" class="errmsg"> </span>
+    <br />
+    <label>
+        Description:<br />
+        <textarea name="Description" cols="40" rows="5" required>@Model.Description</textarea>
+    </label>
+    <br />
+    <label>
+        Category:
+        <select name="Category">
+            <option value="@Model.Category">Plumbing</option>
+            <option value="@Model.Category">Electrical installation</option>
+            <option value="@Model.Category">House Painter</option>
+            <option value="@Model.Category">Cleaner</option>
+            <option value="@Model.Category">Locksmith</option>
+            <option value="@Model.Category">Dry Cleaning</option>
+        </select>
+    </label>
+    <br />
+    <input type="submit" name="send" value="AddService" />
+</form>
+<p style="color:red">@TempData["serviceAdded"]</p>
+

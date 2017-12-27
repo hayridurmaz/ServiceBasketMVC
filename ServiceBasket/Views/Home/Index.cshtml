@@ -6,17 +6,11 @@
         background-color: #87ceeb;
         opacity:0.8;
     }
-    input[type=submit], input[type=text] {
-        background-color: white;
-    }
-    input[type=submit]{
-        color:black;
-    }
 </style>
 <div class="jumbotron">
     <h1>Welcome to ServiceBasket! </h1>
     <p class="lead">You can find several types of services, and their rates given by users here. How can we help you?</p>
-    <p><form action="@Url.Action("Search", "Service", new { search = ViewData["search"] })"><input type="text" name="search" value="@ViewData["search"]" size="350" placeholder="Search any service.." />&emsp; <input type="submit" class="btn btn-primary btn-lg" value="Search &raquo;" /></form></p>
+    <p><form action="@Url.Action("Search", "Service", new { search = ViewData["search"] })"><input type="text" name="search" value="@ViewData["search"]" size="350" />&emsp; <input type="submit" class="btn btn-primary btn-lg" value="Search &raquo;" /></form></p>
 </div>
 
 <div class="row">

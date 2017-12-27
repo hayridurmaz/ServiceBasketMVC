@@ -89,62 +89,55 @@
 
 </head>
 <h2>SignUp</h2>
-<div class="form">
-    <form method="post" action="~/Authentication/SignUp" onsubmit="return validateForm()">
+<form method="post" action="~/Authentication/SignUp" onsubmit="return validateForm()">
 
-        <p>
-            <label>
-                User Name:
-                <input type="text" name="UserId" id="UserId" value="@Model.UserId" placeholder="Enter your user name here.." required />
-            </label>
-            <br />
-            <span id="useriderr" class="errmsg"> </span>
-        </p>
-        <br />
-        <p>
-            <label>
-                Password:
-                <input type="password" name="Password" id="Password" value="@Model.Password" required onkeyup="passcheck();" />
-            </label>
-            <br />
-            <span id="passcheckerr" class="errmsg"> </span>
-        </p>
-        <br />
-        <p>
-            <label>
-                Confirm Password:
-                <input type="password" name="Password1" id="Password1" required onkeyup="passcheck();" />
-            </label>
-            <br />
-            <span id="passerr" class="errmsg"> </span>
-        </p>
-        <br />
-        <p>
-            <label>
-                Email:
-                <input type="text" name="Email" id="Email" value="@Model.Email" placeholder="Enter your Email here.." required />
-            </label>
-            <br />
-            <span id="emailerr" class="errmsg"> </span>
-        </p>
-        <br />
-        <p>
-            <label>
-                Name:
-                <input type="text" name="Name" id="Name" value="@Model.Name" placeholder="Enter your name here.." required />
-            </label>
-            <br />
-            <span id="nameerr" class="errmsg"> </span>
-        </p>
-        <br />
-        <p>
-            <label>
-                Age:
-                <input type="text" name="Age" id="Age" value="@Model.Age" placeholder="Enter your age here.." required />
-            </label>
-            <br />
-            <span id="Ageerr" class="errmsg"> </span>
-        </p>
+    <p>
+    <label>
+        User Name:
+        <input type="text" name="UserId" id="UserId" value="@Model.UserId" required/>
+    </label>
+    <span id="useriderr" class="errmsg"> </span>
+    </p>
+    <br />
+    <p>
+        <label>
+            Password:
+            <input type="password" name="Password" id="Password" value="@Model.Password" required onkeyup="passcheck();" />
+        </label>
+        <span id="passcheckerr" class="errmsg"> </span>
+    </p>
+    <br />
+    <p>
+        <label>
+            Confirm Password:
+            <input type="password" name="Password1" id="Password1" required onkeyup="passcheck();" />
+        </label>
+        <span id="passerr" class="errmsg"> </span>
+    </p>
+    <br />
+    <p>
+        <label>
+            Email:
+            <input type="text" name="Email" id="Email" value="@Model.Email" required />
+        </label>
+        <span id="emailerr" class="errmsg"> </span>
+    </p>
+    <br />
+    <p>
+        <label>
+            Name:
+            <input type="text" name="Name" id="Name" value="@Model.Name" required />
+        </label>
+        <span id="nameerr" class="errmsg"> </span>
+    </p>
+    <br />
+    <p>
+        <label>
+            Age:
+            <input type="text" name="Age" id="Age" value="@Model.Age" required />
+        </label>
+        <span id="Ageerr" class="errmsg"> </span>
+    </p>
         <br />
 
         <label>@Html.RadioButton("IsProvider", true)  Provider</label>
@@ -153,8 +146,7 @@
         <input type="submit" name="send" value="Register" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="reset" value="Clear Form" id="clear" onclick="confirm('Are you sure?')" />
-    </form>
-    <p style="color:red">@TempData["signupMessage"]</p>
-</div>
+</form>
+<p style="color:red">@TempData["signupMessage"]</p>
 
 
