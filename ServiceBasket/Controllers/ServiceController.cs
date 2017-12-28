@@ -111,7 +111,7 @@ namespace ServiceBasket.Controllers
             return View("ServiceDetail");
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult AddComment(Comment comment, String sTitle)
         {
             System.Diagnostics.Debug.WriteLine("sesss"+Session["LoggedIn"]);
@@ -125,6 +125,16 @@ namespace ServiceBasket.Controllers
             System.Diagnostics.Debug.WriteLine("***"+ sTitle);
             comment.Service = ServicePersistence.GetService(sTitle);
             bool? acceptible = false;
+
+            string t = comment.Content.Replace("<", "&lt");
+            string t1 = t.Replace(">", "&gt");
+            string t2 = t1.Replace("(", "&#40");
+            string t3 = t2.Replace(")", "&#41");
+            string t4 = t3.Replace("&", "&#38");
+            t4 = t4.Replace("'", "");
+            string tfinal = t4.Replace("|", "&#124");
+            comment.Content = tfinal;
+
             acceptible = CommentManager.AddNewComment(comment);
             if ((acceptible != null))
             {
