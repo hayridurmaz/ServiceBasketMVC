@@ -32,17 +32,18 @@
         </li>
     }
 </ul>
-
-<form method="post" action="@Url.Action("AddComment", "Service", new {sTitle = Model.Item1.Title})">
-    <label>
-        Title:
-        <input type="text" name="Title" value="@Model.Item2.Title" required />
-    </label>
-    <br />
-    <label>
-        Comment:<br />
-        <textarea name="Content" cols="40" rows="5" required>@Model.Item2.Content</textarea>
-    </label>
-    <br />
-    <input type="submit" name="send" value="AddComment" />
-</form>
+<div class="form">
+    <form method="post" action="@Url.Action("AddComment", "Service", new {sTitle = Model.Item1.Title})">
+        <label>
+            Title:
+            <input type="text" name="Title" value="@Model.Item2.Title" required />
+        </label>
+        <br />
+        <label>
+            Comment:<br />
+            <textarea name="Content" cols="40" rows="5" required>@Model.Item2.Content</textarea>
+        </label>
+        <br />
+        <input type="submit" name="send" value="AddComment" />
+    </form>
+</div>
