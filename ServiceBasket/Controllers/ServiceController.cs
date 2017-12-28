@@ -79,6 +79,7 @@ namespace ServiceBasket.Controllers
             t4 = t4.Replace("'", ""); 
             string tfinal = t4.Replace("|", "&#124");
             service.Description = tfinal;
+
             bool? acceptible = false; 
             acceptible = ServiceManager.AddNewService(service);
             if ((acceptible!=null))
