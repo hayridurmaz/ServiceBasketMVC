@@ -4,24 +4,26 @@
 }
 
 <h2>EditProfile</h2>
-
-<form method="post" action="~/Authentication/EditProfile" >
-    <p>
-        <label>
-             Name:
-            <input type="text" name="Name" id="Name" value="@Model.Name" required />
-        </label>
+<div class="form">
+    <form method="post" action="~/Authentication/EditProfile">
+        <p>
+            <label>
+                Name:
+                <input type="text" name="Name" id="Name" value="@Model.Name" required />
+            </label>
+            <br />
+            <span id="useriderr" class="errmsg"> </span>
+        </p>
         <br />
-        <span id="useriderr" class="errmsg"> </span>
-    </p>
-    <br />
-    <p>
-        <label>
-            Email:
-            <input type="text" name="Email" id="Email" value="@Model.Email" required />
-        </label>
+        <p>
+            <label>
+                Email:
+                <input type="text" name="Email" id="Email" value="@Model.Email" required />
+            </label>
+            <br />
+            <span id="passerr" class="errmsg"> </span>
+        </p>
         <br />
-        <span id="passerr" class="errmsg"> </span>
-    </p>
-    <br />
-    <input type="submit" name="send" value="EditProfile" />
+        <input type="submit" name="send" value="EditProfile" />
+        </form>
+</div>
