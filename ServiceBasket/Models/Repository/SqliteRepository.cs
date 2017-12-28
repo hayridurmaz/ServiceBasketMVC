@@ -124,7 +124,7 @@ namespace ServiceBasket.Models.Repository
                     "PasswordHash varchar(50),IsAdmin INT, IsActive INT, " +
                     "RegisterDate DATE, IsProvider INT, Age INT, PRIMARY KEY(UserId))";
                 DoCommand(sql);
-                sql = "insert into USER (UserId, Name, Email, Salt, PasswordHash, IsAdmin, IsActive, RegisterDate, IsProvider, Age) values ('admin', 'admin', 'admin@servicebasket', 'zu080TcKlSws6gIl96do125gV9Xluqs3T5OTJGYdrxI=', 'xF/4mXi/eTz3usjtZpzSetJg3G8=', 0, 1, '2017-12-26', 1, '21')";
+                sql = "insert into USER (UserId, Name, Email, Salt, PasswordHash, IsAdmin, IsActive, RegisterDate, IsProvider, Age) values ('admin', 'admin', 'admin@servicebasket', 'zu080TcKlSws6gIl96do125gV9Xluqs3T5OTJGYdrxI=', 'xF/4mXi/eTz3usjtZpzSetJg3G8=', 1, 1, '2017-12-26', 1, '21')";
                 DoCommand(sql);
 
                 sql = "CREATE TABLE SERVICE (" +
