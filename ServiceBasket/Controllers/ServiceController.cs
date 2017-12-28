@@ -117,7 +117,7 @@ namespace ServiceBasket.Controllers
             if (Session["LoggedIn"] == null || Session["LoggedIn"].Equals(false) || Session["LoggedIn"].ToString().Length==0)
             {
                 TempData["commentAdded"] = "Please Log in.";
-                return View(comment);
+                return RedirectToAction("ServiceDetail", "Service", new { title = sTitle });
             }
             comment.Writer = UserPersistence.GetUser(Session["userId"].ToString());
             comment.CommentId = CommentPersistence.getMaxId() + 1;
@@ -135,14 +135,14 @@ namespace ServiceBasket.Controllers
                 }
                 else
                 {
-                    TempData["commenteAdded"] = "Comment could not be added.";
-                    return View(comment);
+                    TempData["commentAdded"] = "Comment could not be added.";
+                    return RedirectToAction("ServiceDetail", "Service", new { title = sTitle });
                 }
             }
             else
             {
                 TempData["commentAdded"] = "Comment could not be added.";
-                return View(comment);
+                return RedirectToAction("ServiceDetail", "Service", new { title = sTitle });
             }
         }
 
